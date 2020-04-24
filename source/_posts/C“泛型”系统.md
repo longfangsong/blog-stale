@@ -1,0 +1,33 @@
+---
+title: C“泛型”系统
+date: 2018-04-11 00:00:00
+tags: [C]
+mathjax: true
+comments: true
+summary: 指针给C语言的强类型系统开了一个洞，让C变成了一门弱类型的语言，而我们也可以借助指针来实现C语言中的“泛型”。本文介绍了如何做到这一点。
+---
+<p>注意：在有其他方案的时候，千万不要使用C语言的泛型系统，这是非常危险的！你将面临手动管理内存的大坑！</p>
+ hexo-inject:begin  hexo-inject:end <p>PS：配合valgrind食用将减低内存问题的风险，但你仍然可能会花非常多的时间调试。</p>
+<h2 id="一切皆是void"><a class="headerlink" href="#一切皆是void" title="一切皆是void*"></a>一切皆是<code>void*</code></h2><p>指针说到底就是个放地址的变量，里面放的数据无论如何本质上都是一堆二进制数，要怎么解释都是随你自己。</p>
+<p>指针的类型其实并不是什么重要的东西，你随时可以把指针cast来cast去。</p>
+<p>这样的话，我们不妨把所有数据都填在<code>void*</code>里，以达到泛型的效果。</p>
+<h2 id="类型是什么"><a class="headerlink" href="#类型是什么" title="类型是什么"></a>类型是什么</h2><p>我们从另外一个角度看类型。</p>
+<p>一般认为类型就是数据的长度，这样固然正确，但从另一个角度看，也许也能得出这样的结论：</p>
+<blockquote>
+<p>类型就是数据被创建、拷贝、比较、销毁等的方式。</p>
+</blockquote>
+<p>即一个类型是什么，取决于它能做什么，有点duck type的感觉。</p>
+<p>那么我们只要定义了拷贝构造函数、比较函数、销毁函数等等，我们就能定义出一个类型。</p>
+<p>这样的话，我们就能把一个类型的相关信息表达成这样：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span> *T;</span><br/><span class="line"><span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keyword">void</span> *const_T;</span><br/><span class="line"></span><br/><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">T</span> <span class="params">(*CopyElementFunction)</span><span class="params">(const_T origin)</span></span>;</span><br/><span class="line"></span><br/><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*DestroyElementFunction)</span><span class="params">(T toDestroy)</span></span>;</span><br/><span class="line"></span><br/><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">int8_t</span> <span class="params">(*CompareElementFunction)</span><span class="params">(const_T a, const_T b)</span></span>;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> {</span></span><br/><span class="line">    CopyElementFunction copy;</span><br/><span class="line">    DestroyElementFunction destroy;</span><br/><span class="line">    CompareElementFunction compare;</span><br/><span class="line">} TypeInfo;</span><br/></pre></td></tr></table></figure>
+<p>我们如果要求某些类型有更多的函数，也可以继承<sup><a href="#fn_1" id="reffn_1">1</a></sup><code>TypeInfo</code>来进行更多的要求，你甚至可以把这里的<code>CompareElementFunction</code>下移到<code>CopyableTypeInfo</code>中。</p>
+<h2 id="如何使用"><a class="headerlink" href="#如何使用" title="如何使用"></a>如何使用</h2><p>使用非常方便，要表达一个类型，我们只需要定义好<code>TypeInfo</code>中所需要的各个函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里以我们要使用的类型为int为例。</span></span><br/><span class="line"><span class="function">T <span class="title">copy_int</span><span class="params">(const_T origin)</span> </span>{</span><br/><span class="line">    T new_int = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br/><span class="line">    *((<span class="keyword">int</span> *) new_int) = *((<span class="keyword">int</span> *) origin);</span><br/><span class="line">    <span class="keyword">return</span> new_int;</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">destroy_int</span><span class="params">(T toDestroy)</span> </span>{</span><br/><span class="line">    <span class="built_in">free</span>(toDestroy);</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">int8_t</span> compare_int(const_T a, const_T b) {</span><br/><span class="line">    <span class="keyword">if</span> (*((<span class="keyword">int</span> *) a) &lt; *((<span class="keyword">int</span> *) b)) {</span><br/><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br/><span class="line">    } <span class="keyword">else</span> <span class="keyword">if</span> (*((<span class="keyword">int</span> *) a) &gt; *((<span class="keyword">int</span> *) b)) {</span><br/><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br/><span class="line">    }</span><br/><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
+<p>然后构建起相应的<code>TypeInfo</code>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">TypeInfo IntType = {</span><br/><span class="line">        copy_int, destroy_int, compare_int</span><br/><span class="line">};</span><br/></pre></td></tr></table></figure>
+<p>然后<code>IntType</code>就是<code>int</code>这个类型的所有相关信息了，如果一个函数需要用到泛型特征，我们就能为其创建一个<code>TypeInfo</code>类型的参数（其他实际数据都作为<code>void*</code>，即<code>T</code>传入），然后调用时将<code>IntType</code>传给<code>TypeInfo</code>位置上的参数，就能使用泛型了。</p>
+<p>具体实例可以见我的<a href="https://longfangsong.github.io/2018/03/18/2-3树/">2-3树</a>等文章。</p>
+<blockquote id="fn_1">
+<sup>1</sup>. 关于C的继承等面向对象特性，见<a href="https://longfangsong.github.io/2018/03/17/用纯C实现面向对象编程/">这篇文章</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> ↩</a>
+</blockquote>
+

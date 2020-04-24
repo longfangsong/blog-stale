@@ -100,7 +100,7 @@ github: longfangsong
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://longfangsong@github.com/longfangsong/longfangsong.github.io
+  repo: git@github.com:longfangsong/longfangsong.github.io.git
   branch: master
 
 valine:

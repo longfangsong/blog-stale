@@ -53,4 +53,5 @@ Lease到期后，Primary会放弃自己的Primary身份，不会再处理任何�
 实践中，可以让颁发者稍微“放宽”一点Lease的时间限制，在Lease过期后再过一会再进行对应的操作，不过这段时间也不宜设计地过大，以免使得可用性变得太差。
 
 [^0]: 可以，但没必要.jpg
+
 [^1]: 注意这里Client可能上一秒刚从Master处获知Primary的位置，下一秒请求还没发出来Primary的Lease就过期了，再下一秒，Client发送到Primary的请求就会被Reject。

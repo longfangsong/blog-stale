@@ -18,6 +18,6 @@ comments: false
 
 无论您是否捐助，感谢您阅读我的博客，希望您能从中能有所得。
 
-| 支付宝                      | 微信                        |
-| --------------------------- | --------------------------- |
-| ![alipay](index/alipay.png) | ![wechat](index/wechat.png) |
+| 支付宝                              | 微信                                |
+| ----------------------------------- | ----------------------------------- |
+| <img src="/about/index/alipay.png"> | <img src="/about/index/wechat.png"> |

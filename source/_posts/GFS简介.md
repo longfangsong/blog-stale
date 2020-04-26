@@ -7,7 +7,7 @@ comments: true
 summary: GFS （Google File System）是一个分布式文件系统
 ---
 <p>GFS是一个一个适用于大规模分布式数据处理相关应用的，可扩展的分布式文件系统。</p>
- hexo-inject:begin  hexo-inject:end <h2 id="假设"><a class="headerlink" href="#假设" title="假设"></a>假设</h2><ul>
+    <h2 id="假设"><a class="headerlink" href="#假设" title="假设"></a>假设</h2><ul>
 <li>系统建立在大量廉价普通计算机上</li>
 <li>节点失效是正常的</li>
 <li>存储的文件是很大（数个GB）的</li>

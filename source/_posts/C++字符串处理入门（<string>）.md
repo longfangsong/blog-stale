@@ -7,7 +7,7 @@ comments: true
 summary: C++ string快速入门
 ---
 <h1 id="C-字符串处理入门（-lt-string-gt-）"><a class="headerlink" href="#C-字符串处理入门（-lt-string-gt-）" title="C++字符串处理入门（&lt;string&gt;）"></a>C++字符串处理入门（<code>&lt;string&gt;</code>）</h1><p>（OJ上有好多字符串的题目啊……）</p>
- hexo-inject:begin  hexo-inject:end <p>（用C的字符数组好难做啊……）</p>
+    <p>（用C的字符数组好难做啊……）</p>
 <p>（我们来用<code>string</code>吧！）</p>
 <p>（别忘了<code>#include &lt;string&gt;</code>，记得是没有扩展名的<code>&lt;string&gt;</code>，而不是<code>&lt;string.h&gt;</code>！）</p>
 <h2 id="string类"><a class="headerlink" href="#string类" title="string类"></a><code>string</code>类</h2><p><code>string</code>类就是C++中用来处理字符串的类，注意这个类一般来说只能用来处理ASCII字符构成的字符串，如果用它来处理包含中文字符或其他非ASCII字符的字符串，所造成的后果本人概不负责。</p>

@@ -7,7 +7,7 @@ comments: true
 summary: CPU的原理装置真的不难造。
 ---
 <p>本文假设读者会基本的verilog。</p>
- hexo-inject:begin  hexo-inject:end <p>本文会实现一个CPU的原理装置，作者对几乎所有内容进行了大量的简化，以便于理解，但所制作的简易CPU能完成大部分功能。</p>
+    <p>本文会实现一个CPU的原理装置，作者对几乎所有内容进行了大量的简化，以便于理解，但所制作的简易CPU能完成大部分功能。</p>
 <h2 id="设计思路"><a class="headerlink" href="#设计思路" title="设计思路"></a>设计思路</h2><p>传统CPU的控制往往较为复杂，有多种多样的微操作，但本文设计的CPU只有下面几种“微操作”，且一定是按照这个顺序执行，即：</p>
 <ul>
 <li>根据PC寄存器的值直接从指令Cache取出指令并利用<strong>组合逻辑</strong>进行译码<sup><a href="#fn_1" id="reffn_1">1</a></sup></li>

@@ -7,7 +7,7 @@ comments: true
 summary: 控制台C/C++控制台IO入门
 ---
 <h1 id="（控制台）输入输出和EOF"><a class="headerlink" href="#（控制台）输入输出和EOF" title="（控制台）输入输出和EOF"></a>（控制台）输入输出和EOF</h1><p>最近很多人问我有关输入输出的问题，在此写一篇文章统一回答。</p>
- hexo-inject:begin  hexo-inject:end <p><strong><em>想知道如何接受数量不定的输入数字，或者得到这些输入数字的个数的同学，请直接跳到最后一部分。</em></strong></p>
+    <p><strong><em>想知道如何接受数量不定的输入数字，或者得到这些输入数字的个数的同学，请直接跳到最后一部分。</em></strong></p>
 <h2 id="C语言的控制台IO系统"><a class="headerlink" href="#C语言的控制台IO系统" title="C语言的控制台IO系统"></a>C语言的控制台IO系统</h2><p>首先是C语言带来的<code>&lt;stdio.h&gt;</code>（<code>&lt;cstdio&gt;</code>）中的printf和scanf这一组函数。</p>
 <p><code>printf</code>在官方文档中长这样：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">printf</span><span class="params">( <span class="keyword">const</span> <span class="keyword">char</span> *format, ... )</span></span>;</span><br/></pre></td></tr></table></figure>

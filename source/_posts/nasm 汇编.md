@@ -7,7 +7,7 @@ comments: true
 summary: 这课上教的汇编是传说中微软独家的MASM，作为曾经的微软黑（“曾经”修饰“微软”，不是“微软黑”）,我不搞一点幺蛾子出来是不可能的事情，所以就开始研究这些个开源汇编编译器，看来看去，gas语法太怪，还是nasm和与其兼容的yasm比较合理。
 ---
 <p>本文所述的是64位汇编。</p>
- hexo-inject:begin  hexo-inject:end <h2 id="环境搭建"><a class="headerlink" href="#环境搭建" title="环境搭建"></a>环境搭建</h2><p>安装nasm:</p>
+    <h2 id="环境搭建"><a class="headerlink" href="#环境搭建" title="环境搭建"></a>环境搭建</h2><p>安装nasm:</p>
 <h3 id="macOS"><a class="headerlink" href="#macOS" title="macOS"></a>macOS</h3><p>我假设你已经装好了brew和xcode-dev-tools。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">brew install nasm</span><br/></pre></td></tr></table></figure>
 <p>就结束了。</p>

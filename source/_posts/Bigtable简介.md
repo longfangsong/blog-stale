@@ -7,7 +7,7 @@ comments: true
 summary: Bigtable是Google设计的用于存储PB级数据的分布式强一致性非SQL数据库系统。
 ---
 <p>Bigtable“用于解决 Google 内部不同产品在对数据存储的容量和响应时延需求的差异化，力求在确保能够容纳大量数据的同时减少数据的查询耗时”。</p>
- hexo-inject:begin  hexo-inject:end <p>说到底就是一个数据库。</p>
+    <p>说到底就是一个数据库。</p>
 <p>值得注意的是，虽然Bigtable不支持SQL，但是仍然借来了一些SQL中的一些概念（表、行、列）。</p>
 <h2 id="前置知识"><a class="headerlink" href="#前置知识" title="前置知识"></a>前置知识</h2><h3 id="Chubby-分布式锁服务1"><a class="headerlink" href="#Chubby-分布式锁服务1" title="Chubby 分布式锁服务1"></a>Chubby 分布式锁服务<sup><a href="#fn_1" id="reffn_1">1</a></sup></h3><p>Chubby是一个“分布式锁服务”，其底层实现是paxos，作用是提供一个分布式系统中的锁。</p>
 <p>锁的形式类似一个文件，即创建一个文件相当于加锁，删除一个文件相当于解锁。</p>

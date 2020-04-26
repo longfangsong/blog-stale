@@ -7,7 +7,7 @@ comments: true
 summary: 串行外设接口，即通常所说的SPI，是单片机中常用的一种和外部设备通信用的同步串行通信接口规范，常用于和SD卡，LCD屏幕等设备的通信中。
 ---
 <p>SPI这个接口其实在我玩Arduino的时候就在用了，不过当时就是个调库侠，啥规定原理都不知道只管<code>#include &lt;SPI.h&gt;</code>就好了，现在玩STM32就不一样了，不知道SPI规范到底是个啥就凉凉。</p>
- hexo-inject:begin  hexo-inject:end <h2 id="SPI的接线"><a class="headerlink" href="#SPI的接线" title="SPI的接线"></a>SPI的接线</h2><p>SPI的接线比IIC要多一点，规定在主设备和从设备上各要有四个接线：</p>
+    <h2 id="SPI的接线"><a class="headerlink" href="#SPI的接线" title="SPI的接线"></a>SPI的接线</h2><p>SPI的接线比IIC要多一点，规定在主设备和从设备上各要有四个接线：</p>
 <ul>
 <li>SCLK：时钟信号，主设备的SCLK（可以是一个数字口）要接到从设备的SCLK上，以达成关于通信速度的共识</li>
 <li>MOSI：主设备输出，从设备输入，主设备的MOSI（可以是一个数字口）要接到从设备的MISO<sup><a href="#fn_1" id="reffn_1">1</a></sup>上</li>

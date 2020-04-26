@@ -7,7 +7,7 @@ comments: true
 summary: 入了一块FPGA，Xilinx的Spartan-6系列，花了半天才用ISE烧进了程序，这里记录一下踩的坑。
 ---
 <p>（我还可以再底一点的，从沙子开始……）</p>
- hexo-inject:begin  hexo-inject:end <p>（……好吧，我觉得不行）</p>
+    <p>（……好吧，我觉得不行）</p>
 <p>国庆入了一块Xilinx的Spartan-6系列FPGA，试图把程序烧写进去。</p>
 <p>非常惨的事情是，这家公司有问题(x)<sup><a href="#fn_1" id="reffn_1">1</a></sup>，做的软件都没有Mac版，甚至Linux版本都限制Open Suse和Red hat发行版，而Windows却全线（甚至Server版本都）覆盖……</p>
 <p>开始觉得Ubuntu凑合能跑，结果还是我Naive了，界面能跑但是功能都是烂的，无奈虚拟机装了个Win 7，稍微卡了点……。</p>

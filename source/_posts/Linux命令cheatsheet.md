@@ -7,7 +7,7 @@ comments: true
 summary: 记忆力为0的我老是记不住linux常用命令啊……写个cheatsheet吧。其实里面有些是常用软件，但是就不严格区分了。
 ---
 <p>（我lfs就是饿死，死外边，也不会背一句命令！！！）</p>
- hexo-inject:begin  hexo-inject:end <div class="table-container">
+    <div class="table-container">
 <table>
 <thead>
 <tr>

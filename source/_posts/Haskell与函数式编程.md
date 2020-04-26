@@ -7,7 +7,7 @@ comments: true
 summary: 函数式编程是近几年新兴的一种编程的思维方式，而Haskell作为一门纯函数式编程语言，可以极大的帮助一个程序员学会用函数式思维方式思考。
 ---
 <p>你也许不会在工作中用一门纯函数式编程语言（那样对大脑太不友好），但你应当学习这样一门语言，因为这将会改变你的思维，即使你平常使用的是一些常见的语言，如C++/Java(8+)/Python/JS，你还是能从这些语言中找到函数式编程的影子，另外，函数式编程思想在架构的设计上也有很大的作用。</p>
- hexo-inject:begin  hexo-inject:end <h2 id="What’s-the-difference"><a class="headerlink" href="#What’s-the-difference" title="What’s the difference?"></a>What’s the difference?</h2><p>函数式编程语言和我们平常使用比较多的命令式编程语言有极大的不同。</p>
+    <h2 id="What’s-the-difference"><a class="headerlink" href="#What’s-the-difference" title="What’s the difference?"></a>What’s the difference?</h2><p>函数式编程语言和我们平常使用比较多的命令式编程语言有极大的不同。</p>
 <p>（像Haskell这样的）纯函数式编程语言和命令式编程语言有以下几个巨大的不同：</p>
 <ol>
 <li>没有变量，一切量都是不变的<ul>

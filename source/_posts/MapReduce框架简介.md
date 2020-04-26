@@ -7,7 +7,7 @@ comments: true
 summary: MapReduce框架是分布式系统领域经典中的经典，本文大致介绍了这一框架的设计。
 ---
 <p>上了MIT 6.824之后发现这个MapReduce和Haskell里的<code>map</code>+<code>reduce</code>(fold)还是有点差别的，另外在运算过程上还有一些细节。</p>
- hexo-inject:begin  hexo-inject:end <h2 id="整个过程的输入与输出"><a class="headerlink" href="#整个过程的输入与输出" title="整个过程的输入与输出"></a>整个过程的输入与输出</h2><p>MapReduce中，整个过程的输入与输出都是一组键值对。</p>
+    <h2 id="整个过程的输入与输出"><a class="headerlink" href="#整个过程的输入与输出" title="整个过程的输入与输出"></a>整个过程的输入与输出</h2><p>MapReduce中，整个过程的输入与输出都是一组键值对。</p>
 <h2 id="map过程"><a class="headerlink" href="#map过程" title="map过程"></a>map过程</h2><p>由用户定义的map函数会应用到输入键值对中的每一个上。</p>
 <p>map函数应当输出若干新的键值对。</p>
 <p>即：</p>

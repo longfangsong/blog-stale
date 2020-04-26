@@ -7,7 +7,7 @@ comments: true
 summary: 拿到/创建一台新的Ubuntu Server之后必做的配置工作
 ---
 <h2 id="开启ssh"><a class="headerlink" href="#开启ssh" title="开启ssh"></a>开启ssh</h2><p>新的Ubuntu Server上没有sshd，要安装<code>openssh-server</code>：</p>
- hexo-inject:begin  hexo-inject:end <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo apt install openssh-server</span><br/></pre></td></tr></table></figure>
+    <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo apt install openssh-server</span><br/></pre></td></tr></table></figure>
 <h2 id="apt换源"><a class="headerlink" href="#apt换源" title="apt换源"></a>apt换源</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">sudo sed -i 's/us.archive.ubuntu.com/mirrors.shu.edu.cn/g' /etc/apt/sources.list</span><br/><span class="line">sudo apt update</span><br/></pre></td></tr></table></figure>
 <h2 id="一些必要软件包"><a class="headerlink" href="#一些必要软件包" title="一些必要软件包"></a>一些必要软件包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo apt install vim curl</span><br/></pre></td></tr></table></figure>
 <h2 id="Docker环境"><a class="headerlink" href="#Docker环境" title="Docker环境"></a>Docker环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo apt install docker.io</span><br/></pre></td></tr></table></figure>

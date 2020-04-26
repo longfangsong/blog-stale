@@ -7,7 +7,7 @@ comments: true
 summary: Flexbox是现代web页面布局的一大利器，但是相关属性众多，为了方便查阅，本文列出了最常用的几个Flexbox布局相关属性。
 ---
 <p>Flexbox是现代web页面布局的一大利器，但是相关属性众多，本人每次使用都要查文档，而且查了多次（≥20）居然一点都没记住。</p>
- hexo-inject:begin  hexo-inject:end <p>所以就写了这个cheatsheet，不是因为写了就记住了，而是从自己写的文档里翻东西比较快……</p>
+    <p>所以就写了这个cheatsheet，不是因为写了就记住了，而是从自己写的文档里翻东西比较快……</p>
 <h2 id="display-flex"><a class="headerlink" href="#display-flex" title="display: flex;"></a><code>display: flex;</code></h2><p>在某个元素上设置，这个元素内部使用Flexbox布局。</p>
 <h2 id="flex-direction"><a class="headerlink" href="#flex-direction" title="flex-direction"></a><code>flex-direction</code></h2><p>主轴方向，取值如下：</p>
 <ul>

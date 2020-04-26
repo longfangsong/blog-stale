@@ -7,7 +7,7 @@ comments: true
 summary: Docker常用命令cheatsheet
 ---
 <p>（我lfs就是饿死，死外边，也不会背一句命令！！！）</p>
- hexo-inject:begin  hexo-inject:end <h2 id="查看所有镜像"><a class="headerlink" href="#查看所有镜像" title="查看所有镜像"></a>查看所有镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">docker images</span><br/></pre></td></tr></table></figure>
+    <h2 id="查看所有镜像"><a class="headerlink" href="#查看所有镜像" title="查看所有镜像"></a>查看所有镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">docker images</span><br/></pre></td></tr></table></figure>
 <h2 id="删除镜像"><a class="headerlink" href="#删除镜像" title="删除镜像"></a>删除镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">docker image rm 镜像ID</span><br/></pre></td></tr></table></figure>
 <h2 id="用当前目录下Dockerfile构建容器"><a class="headerlink" href="#用当前目录下Dockerfile构建容器" title="用当前目录下Dockerfile构建容器"></a>用当前目录下Dockerfile构建容器</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">docker build .</span><br/></pre></td></tr></table></figure>
 <h2 id="用镜像启动容器"><a class="headerlink" href="#用镜像启动容器" title="用镜像启动容器"></a>用镜像启动容器</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">docker run 镜像名</span><br/></pre></td></tr></table></figure>

@@ -7,7 +7,7 @@ comments: true
 summary: IEEE二进制浮点数算术标准（IEEE 754）是20世纪80年代以来最广泛使用的浮点数运算标准，为许多CPU与浮点运算器所采用。现代各种计算机语言也多将IEEE 754浮点数作为储存小数时的默认方案。
 ---
 <h2 id="浮点数的表示"><a class="headerlink" href="#浮点数的表示" title="浮点数的表示"></a>浮点数的表示</h2><p>IEEE 754中的浮点数表示如下：</p>
- hexo-inject:begin  hexo-inject:end <script type="math/tex; mode=display">
+    <script type="math/tex; mode=display">
 浮点数实际值 = 符号位 \times 分数值 \times (10)_2^{指数}</script><p>实际存储在内存中的是</p>
 <ul>
 <li>符号位</li>

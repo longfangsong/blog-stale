@@ -7,7 +7,7 @@ comments: true
 summary: AVL树是最早被发明的自平衡二叉查找树。在AVL树中，任一节点对应的两棵子树的最大高度差为1，因此它也被称为高度平衡树。AVL的实现比红黑不知道简单到哪里去了。
 ---
 <p>本文假设读者已经知道：</p>
- hexo-inject:begin  hexo-inject:end <ul>
+    <ul>
 <li>什么是二叉搜索树</li>
 <li>二叉搜索树不平衡时会带来的问题</li>
 </ul>

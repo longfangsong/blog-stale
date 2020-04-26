@@ -7,7 +7,7 @@ comments: true
 summary: （我学会的）抽象代数中代数结构的整理。
 ---
 <h2 id="运算"><a class="headerlink" href="#运算" title="运算"></a>运算</h2><h3 id="二元运算"><a class="headerlink" href="#二元运算" title="二元运算"></a>二元运算</h3><blockquote>
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><p>给定集合$A$，二元函数$F: A \times A → A$称为集合A上的<strong>二元运算</strong>。</p>
+<p>给定集合$A$，二元函数$F: A \times A → A$称为集合A上的<strong>二元运算</strong>。</p>
 </blockquote>
 <p>本文中的二元运算使用 $\circ$ 、$\diamond$  <sup><a href="#fn_1" id="reffn_1">1</a></sup>表示，同时，集合$A$中的元素用 $a$ ，$b$ ，$c$ 等表示。</p>
 <h3 id="可能使集合具有的特殊元素"><a class="headerlink" href="#可能使集合具有的特殊元素" title="可能使集合具有的特殊元素"></a>可能使集合具有的特殊元素</h3><h4 id="幺元-单位元-（identity-element-neutral-element）"><a class="headerlink" href="#幺元-单位元-（identity-element-neutral-element）" title="幺元/单位元 （identity element/neutral element）"></a>幺元/单位元 （identity element/neutral element）</h4><p>若对 $A$ 中每个元素 $a$</p>

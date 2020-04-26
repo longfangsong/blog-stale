@@ -7,7 +7,7 @@ comments: true
 summary: Neo4j图数据库常用功能cheatsheet。
 ---
 <p>Neo4j是在市面上用的比较多的一款NoSQL图形数据库，它能将数据用由节点和边构成的图表示出来，无论是从数据的可视化来看，还是从分析数据之间的关系上来看都是非常好的一款数据库。</p>
- hexo-inject:begin  hexo-inject:end <h2 id="安装"><a class="headerlink" href="#安装" title="安装"></a>安装</h2><p>推荐安装官方提供的Desktop版本，安装真的非常方便。</p>
+    <h2 id="安装"><a class="headerlink" href="#安装" title="安装"></a>安装</h2><p>推荐安装官方提供的Desktop版本，安装真的非常方便。</p>
 <p><a href="https://neo4j.com/download/" rel="noopener" target="_blank">下载地址</a></p>
 <h2 id="新建工程-amp-数据库"><a class="headerlink" href="#新建工程-amp-数据库" title="新建工程&amp;数据库"></a>新建工程&amp;数据库</h2><p>打开你下载到的App，你会看到这样的页面：</p>
 <p><img alt="init" src="./Init.png"/></p>

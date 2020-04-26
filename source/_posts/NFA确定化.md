@@ -7,7 +7,7 @@ comments: true
 summary: 老师这么讲谁懂啊。
 ---
 <p>欠了两年（2018-04-12~2020-04-21）的欠账终于还是要还啊。</p>
- hexo-inject:begin  hexo-inject:end <h2 id="NFA"><a class="headerlink" href="#NFA" title="NFA"></a>NFA</h2><p>就一从一个状态给定一个符号（允许为空符号$\epsilon $）可能会转换到多个其他状态的自动机。</p>
+    <h2 id="NFA"><a class="headerlink" href="#NFA" title="NFA"></a>NFA</h2><p>就一从一个状态给定一个符号（允许为空符号$\epsilon $）可能会转换到多个其他状态的自动机。</p>
 <p>图中的：</p>
 <ul>
 <li>圈指一个状态</li>

@@ -7,11 +7,12 @@ comments: true
 summary: 这个定理告诉我们：没有完美的分布式系统。
 ---
 <h2 id="CAP定理"><a class="headerlink" href="#CAP定理" title="CAP定理"></a>CAP定理</h2><p>对于一个分布式系统来说，不可能同时满足以下三点：</p>
- hexo-inject:begin  hexo-inject:end <ul>
+<ul>
 <li>（强）一致性（<strong>C</strong>onsistency） </li>
 <li>可用性（<strong>A</strong>vailability）（即每次请求没有物理上不可用的节点时都能获取到非错的响应）</li>
 <li>分区容错性（<strong>P</strong>artition tolerance）（即如果分布式系统由于某些原因，存在互相不能通信的两组节点，那么这个系统仍然应该正常的提供服务）</li>
 </ul>
+
 <h3 id="例子"><a class="headerlink" href="#例子" title="例子"></a>例子</h3><p>假设有两个节点和一个Client：</p>
 <ol>
 <li><p>如果要保证可用性（A）和分区容错性（P），那么在网络出现分区时，无论用户的请求被发送到了两个节点中的任何一个，无论如何都要做出相应，而在一个节点上的插入请求无法被另一个节点知道，这样两个节点间不可能保持一致性，即放弃了C。<br/><img alt="AP" src="./AP.png"/></p>

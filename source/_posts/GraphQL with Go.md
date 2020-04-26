@@ -7,7 +7,7 @@ comments: true
 summary: GraphQL大大改变了Web程序员获取数据的方式，由原来的“后端开某类接口给前端”变为了“后端开GraphQL让前端自己想要啥拿啥”。本文讲解了GraphQL如何与Go语言配合工作。
 ---
 <h2 id="GraphQL"><a class="headerlink" href="#GraphQL" title="GraphQL"></a>GraphQL</h2><blockquote>
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><p>GraphQL 是一个用于 API 的查询语言，是一个使用基于类型系统来执行查询的服务端运行时（类型系统由你的数据定义）。GraphQL 并没有和任何特定数据库或者存储引擎绑定，而是依靠你现有的代码和数据支撑。</p>
+<p>GraphQL 是一个用于 API 的查询语言，是一个使用基于类型系统来执行查询的服务端运行时（类型系统由你的数据定义）。GraphQL 并没有和任何特定数据库或者存储引擎绑定，而是依靠你现有的代码和数据支撑。</p>
 </blockquote>
 <p>不要因为名字里带个QL就把它和数据库联想起来了，无论如何QL只代表它是一门查询语言（Query Language），它根本不能直接碰数据库。</p>
 <p>（你看看yaml，就和html长得一点都不像对不对，名字不重要。）</p>

@@ -7,7 +7,7 @@ comments: true
 summary: flex & bison是lex & yacc的继任者，可以相对简单地生成词法分析和语法分析程序。
 ---
 <h2 id="词法分析"><a class="headerlink" href="#词法分析" title="词法分析"></a>词法分析</h2><p>词法分析的作用就是从源代码（一堆字符）中切分出一个个单词（常常称为token），并给这些单词标记”词性”。</p>
- hexo-inject:begin  hexo-inject:end <p>我们使用flex生成词法分析程序。</p>
+    <p>我们使用flex生成词法分析程序。</p>
 <h3 id="flex"><a class="headerlink" href="#flex" title="flex"></a>flex</h3><p>flex是一个用于生成词法分析器代码的程序：</p>
 <p><img alt="flex" src="./flex.svg"/></p>
 <h4 id="安装"><a class="headerlink" href="#安装" title="安装"></a>安装</h4><p>大部分的包管理器（brew、apt等）应该能方便地装上flex。</p>

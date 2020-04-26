@@ -7,7 +7,7 @@ comments: true
 summary: k8s里的概念茫茫多，其实我熟的也就是node、deployment、pod和service这几个最常用的……搞个速查表不用每次都翻文档好了。
 ---
 <h2 id="API-Server"><a class="headerlink" href="#API-Server" title="API Server"></a>API Server</h2><p>我理解就是可以由此调用k8s的restful API来观察和管理各个集群里的各个对象。</p>
- hexo-inject:begin  hexo-inject:end <h2 id="Pod"><a class="headerlink" href="#Pod" title="Pod"></a>Pod</h2><p>一般来说，pod就是一个在跑的容器。</p>
+    <h2 id="Pod"><a class="headerlink" href="#Pod" title="Pod"></a>Pod</h2><p>一般来说，pod就是一个在跑的容器。</p>
 <p>当然也有一些情况是一个Pod内部署多个相关的容器的，比如多个容器需要共享一个存储 Volume 或者一个 IP 地址</p>
 <h2 id="Service"><a class="headerlink" href="#Service" title="Service"></a>Service</h2><p>简单来说就是给一组Pod在集群内一个稳定（不随着Pod消亡/创建/修改而变化）的IP，并在这组Pod间进行负载均衡。</p>
 <h2 id="Controller"><a class="headerlink" href="#Controller" title="Controller"></a>Controller</h2><p>Controller负责监视集群状态，然后推动集群往“用户想要的状态”变化，每种资源都对应一种controller。</p>

@@ -7,7 +7,7 @@ comments: true
 summary: 在STL的实现中大量使用了一种平时可能并不常用的C++高级技巧：Traits，这里对其进行大致的介绍。
 ---
 <h1 id="C-中的“黑魔法”-Traits"><a class="headerlink" href="#C-中的“黑魔法”-Traits" title="C++中的“黑魔法”-Traits"></a>C++中的“黑魔法”-Traits</h1><h2 id="何为Traits"><a class="headerlink" href="#何为Traits" title="何为Traits"></a>何为Traits</h2><blockquote>
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><p><strong>Traits</strong>在面向对象程序设计中，是一个不可实例化（uninstantiable）的方法与类型的集合，为一个对象或算法提供了策略（policy）或实现自身接口的细节功能。</p>
+<p><strong>Traits</strong>在面向对象程序设计中，是一个不可实例化（uninstantiable）的方法与类型的集合，为一个对象或算法提供了策略（policy）或实现自身接口的细节功能。</p>
 <p>Traits作为模板类，既声明了统一的接口（包括类型、枚举、函数方法等），又可以通过模板特化，针对不同数据类型或其他模板参数，为类、函数或者通用算法在因为使用的数据类型不同而导致处理逻辑不同时，提供了区分不同类型的具体细节，从而把这部分用Traits实现的功能与其它共同的功能区分开来。例如，容器的元素的不同数据类型，或者<code>iostream</code>是使用<code>char</code>还是<code>wchar_t</code>。</p>
 </blockquote>
 <p>看着云里雾里，我们来结合实际例子进行理解。</p>

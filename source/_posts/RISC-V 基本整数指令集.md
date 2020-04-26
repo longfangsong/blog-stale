@@ -7,7 +7,7 @@ comments: true
 summary: 在连续被x86虐了n多场考试之后，我决定搞懂这个简单易懂的RISC-V，至少做一个支持所有基本整数指令的CPU出来，下面是对这个基本整数指令集的分析。
 ---
 <p>RISC-V指令集中最基本的部分是RV32I，每个RISC-V CPU都要实现这一指令集（当然嵌入式设备可以实现更为精减的RV32E）。</p>
- hexo-inject:begin  hexo-inject:end <p>RV32I中共有47条指令，其中<code>SCALL</code>和<code>FENCE</code>等可以在阉割了部分功能的条件下通过某些方式用其他指令替代，故真正”最少需要实现”的指令条数是38条。</p>
+    <p>RV32I中共有47条指令，其中<code>SCALL</code>和<code>FENCE</code>等可以在阉割了部分功能的条件下通过某些方式用其他指令替代，故真正”最少需要实现”的指令条数是38条。</p>
 <h2 id="寻址方式"><a class="headerlink" href="#寻址方式" title="寻址方式"></a>寻址方式</h2><p>RISC-V在运算指令中只支持寄存器寻址和立即数，所有和内存的交互都通过<code>load</code>和<code>store</code>族指令进行。比x86一堆怪异而且根本记不住的寻址方式不知道高到哪里去了。</p>
 <h2 id="寄存器"><a class="headerlink" href="#寄存器" title="寄存器"></a>寄存器</h2><p>RV32I要求要有：</p>
 <ul>

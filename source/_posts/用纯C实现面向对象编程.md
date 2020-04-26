@@ -7,7 +7,7 @@ comments: true
 summary: C语言也可以进行面向对象编程！让我们看看一般认为是面向过程的“万物之母”语言——C语言是如何进行面向对象的操作。
 ---
 <blockquote>
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><p>Program into your language, not in it. ——Code Complete</p>
+<p>Program into your language, not in it. ——Code Complete</p>
 <p>别让语言限制了你的想象力！——我说的</p>
 </blockquote>
 <p>实际上本人一直知道C面向对象这些个玩意，但是从来没有实践过，直到最近玩单片机，移植和扩展RT-thread操作系统才真正在正儿八经的代码里见识和应用到了这些个东西，恰好撸码+复习的太晚导致睡不着，故作此文，以整理，备忘，交流。</p>

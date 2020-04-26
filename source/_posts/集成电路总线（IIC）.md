@@ -7,7 +7,7 @@ comments: true
 summary: I²C（Inter-Integrated Circuit），集成电路总线，是一种串行通信总线，常用于单片机之间和单片机与EEPROM、DAC、ADC、RTC等设备的通信。
 ---
 <p>I²C和SPI相比通信协议没那么简单，但是用的线比较少，因此封装尺寸和耗电量可以减少。</p>
- hexo-inject:begin  hexo-inject:end <p>另外，注意要读“I平方C”或者“IIC”，不要读“I二C”，这就和读“C井”一样不专业（正确读法是“C sharp”）。</p>
+    <p>另外，注意要读“I平方C”或者“IIC”，不要读“I二C”，这就和读“C井”一样不专业（正确读法是“C sharp”）。</p>
 <h2 id="IIC的接线"><a class="headerlink" href="#IIC的接线" title="IIC的接线"></a>IIC的接线</h2><p>IIC只使用了两根线（全部都采用开漏输出，上拉电阻），串行数据线（SDA）和串行时钟线（SCL）。</p>
 <ul>
 <li>SDA：用于传输数据，连接从设备的SDA</li>

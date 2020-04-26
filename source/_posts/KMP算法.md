@@ -7,7 +7,7 @@ comments: true
 summary: KMP算法是字符串匹配算法中比较基本，而且也比较容易理解的一种，本文讲解了这种算法。
 ---
 <h2 id="手动模拟匹配"><a class="headerlink" href="#手动模拟匹配" title="手动模拟匹配"></a>手动模拟匹配</h2><p>先看一个手动匹配的例子，感受一下。</p>
- hexo-inject:begin  hexo-inject:end <p>假设我们要从下面的字符串中：</p>
+<p>假设我们要从下面的字符串中：</p>
 <p><img alt="StringToMatch" src="./StringToMatch.svg"/></p>
 <p>匹配这样的字符串：</p>
 <p><img alt="StringMatching" src="./StringMatching.svg"/></p>
@@ -55,4 +55,3 @@ summary: KMP算法是字符串匹配算法中比较基本，而且也比较容�
 <blockquote id="fn_1">
 <sup>1</sup>. 其实这里计算真前缀时可以将<code>D</code>本身带上，这样就能后移更多距离，但是Wikipedia上给的例子并没有考虑这一点，而且实现起来也不方便，故我也不考虑了。<a href="#reffn_1" title="Jump back to footnote [1] in the text."> ↩</a>
 </blockquote>
-

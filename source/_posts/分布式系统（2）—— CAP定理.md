@@ -12,7 +12,6 @@ summary: 这个定理告诉我们：没有完美的分布式系统。
 <li>可用性（<strong>A</strong>vailability）（即每次请求没有物理上不可用的节点时都能获取到非错的响应）</li>
 <li>分区容错性（<strong>P</strong>artition tolerance）（即如果分布式系统由于某些原因，存在互相不能通信的两组节点，那么这个系统仍然应该正常的提供服务）</li>
 </ul>
-
 <h3 id="例子"><a class="headerlink" href="#例子" title="例子"></a>例子</h3><p>假设有两个节点和一个Client：</p>
 <ol>
 <li><p>如果要保证可用性（A）和分区容错性（P），那么在网络出现分区时，无论用户的请求被发送到了两个节点中的任何一个，无论如何都要做出相应，而在一个节点上的插入请求无法被另一个节点知道，这样两个节点间不可能保持一致性，即放弃了C。<br/><img alt="AP" src="./AP.png"/></p>
@@ -28,9 +27,15 @@ summary: 这个定理告诉我们：没有完美的分布式系统。
 <p>以下是使用一些一致性机制时对应的CAP取舍。</p>
 <h4 id="Lease机制"><a class="headerlink" href="#Lease机制" title="Lease机制"></a>Lease机制</h4><p>完全的C，较好的A和P。</p>
 <h4 id="Quorum-机制"><a class="headerlink" href="#Quorum-机制" title="Quorum 机制"></a>Quorum 机制</h4><p>有一定的 C，有较好的 A，也有较好的 P。</p>
-<h4 id="两阶段提交机制"><a class="headerlink" href="#两阶段提交机制" title="两阶段提交机制"></a>两阶段提交机制</h4><p>完全的 C，很糟糕的 A，很糟糕的 P。</p>
-<h4 id="Paxos"><a class="headerlink" href="#Paxos" title="Paxos"></a>Paxos</h4><p>完全的 C，较好的 A，较好的 P。</p>
+
+#### 两阶段提交机制
+完全的 C，很糟糕的 A，很糟糕的 P。
+
+#### Paxos
+完全的 C，较好的 A，较好的 P。
+
 <blockquote id="fn_1">
 <sup>1</sup>. 关于这点，<a href="https://www.infoq.cn/article/cap-twelve-years-later-how-the-rules-have-changed/" rel="noopener" target="_blank">这篇文章</a>写得很好。<a href="#reffn_1" title="Jump back to footnote [1] in the text."> ↩</a>
 </blockquote>
+
 

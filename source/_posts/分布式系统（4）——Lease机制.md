@@ -42,7 +42,15 @@ Lease到期后，Primary会放弃自己的Primary身份，不会再处理任何�
 
 一般来讲，检查可用性的方案第一个想到的就是基于心跳包的方案，即节点隔一段时间就向Master发送心跳包，Master一段时间内没有收到从某处过来的心跳包就标记这个节点为不可用。
 
-单纯地这么做的问题在于，某一个节点可能因为和Master之间的网络连接不好而被误认为挂掉了，如果这个节点是Secondary还好说，如果是个Primary节点，正在处理某个写请求，而此时Master又选出了新的Primary节点，新Primary节点也在处理另一个写请求……那显然数据完整性就完蛋了。
+单纯地这么做的问题在于，某一个节点可能因为和Master之间的网络连接不好而被误认为挂掉了：
+
+![failed-heartbeat](分布式系统（4）——Lease机制/failed-heartbeat.svg)
+
+如果这个节点是Secondary还好说，如果是个Primary节点，正在处理某个写请求，而此时Master又选出了新的Primary节点，新Primary节点也要处理另一个写请求：
+
+![failed-heartbeat-result](分布式系统（4）——Lease机制/failed-heartbeat-result.svg)
+
+那显然数据完整性就完蛋了。
 
 如果使用Lease机制来保证可用性，即在某个Primary的Lease过期前无论如何都不会剥夺其Primary身份，就不会有问题，Master如果没有收到来自某个Primary的心跳包，也不会立即选择新的Primary，而是等到这个Primary的Lease过期后再选择。这就保证无论何时，一个系统内最多只有某个数据块对应的一个Primary。这显然也是放弃可用性来追求一致性的方案。
 

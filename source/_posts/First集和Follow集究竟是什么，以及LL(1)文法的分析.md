@@ -19,13 +19,13 @@ summary: 课上这个First集和Follow集出现地非常之突兀，好像突然
 
 例如下面一个（消除了左递归的，所有的$|$都拆开了的）文法：
 $$
-E \rightarrow T E' \\
-E' \rightarrow + T E' \\
-E' \rightarrow \epsilon \\
-T \rightarrow F T' \\
-T' \rightarrow * FT' \\
-T' \rightarrow \epsilon \\
-F \rightarrow (E)  \\
+E \rightarrow T E' \\\\
+E' \rightarrow + T E' \\\\
+E' \rightarrow \epsilon \\\\
+T \rightarrow F T' \\\\
+T' \rightarrow * FT' \\\\
+T' \rightarrow \epsilon \\\\
+F \rightarrow (E) \\\\
 F \rightarrow id
 $$
 可以看出，在调用某个（直接或间接）带有`|`的parse函数，并看到了下一个输入为某个符号时，选用的生成式是：
@@ -170,3 +170,4 @@ Follow集就是在文法的所有句子中，可能出现在“由非终结符A�
 [^1]: 注意这里“数次”含0次，所以起始符号自然符合要求
 
 [^2]: 这里可能要自己感觉一下，如果有人有更好的讲法，请在评论区留言
+

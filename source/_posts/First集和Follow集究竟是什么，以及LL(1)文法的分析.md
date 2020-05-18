@@ -121,9 +121,9 @@ $$
 
 那这个最后一列怎么处理呢？
 
-也很简单，如果从起始符号开始，在经过数次推导之后，在由某个非终结符作为最右边的非终结符时推导可以使整个文法的分析结束，这个非终结符对应推出$\epsilon$的推导式就能填在最后一列对应的行中。[^1]
+也很简单，如果从起始符号开始，在经过数次推导之后，在由某个非终结符作为最右边的非终结符时推导可以使整个文法的分析结束，这个非终结符对应推出$\epsilon$的推导式就能填在最后一列对应的行中。[^2]
 
-那么怎么找出这些“从起始符号开始，在经过数次推导[^0]之后，作为最右边的非终结符时推导可以使整个文法的分析结束”的非终结符号呢？
+那么怎么找出这些“从起始符号开始，在经过数次推导[^1]之后，作为最右边的非终结符时推导可以使整个文法的分析结束”的非终结符号呢？
 
 首先我们可以看开始符号最右边的符号，这个符号一定符合我们的要求，在这里这个符号是$E '$。
 
@@ -150,13 +150,12 @@ Follow集就是在文法的所有句子中，可能出现在“由非终结符A�
 
 ### 求法
 
-> 1. Place \$ in $FOLLOW(S)$, where S is the start symbol, and $ is the input right endmarker.
+> 1. Place $\\$$ in $FOLLOW(S)$, where S is the start symbol, and $ is the input right endmarker.
 > 2. If there is a production $A → αBβ$, then everything in $FIRST(β)$ except $\epsilon$ is in $FOLLOW(B)$.
 > 3. If there is a production $A → αB$, or a production $A → αBβ$, where $FIRST(β)$ contains $\epsilon$, then everything in $FOLLOW(A)$is in $FOLLOW(B)$.
 >    —— “Compilers: Principles, Techniques, and Tools, 2/e”
 
-1. 输入结束标记（龙书中称为\$）在$FOLLOW(S)$中
-
+1. 输入结束标记（龙书中称为$\\$$）在$FOLLOW(S)$中
 2. 若有$A → αBβ$，则 $FIRST(β)$ 中所有不为 $\epsilon$ 的元素都在 $FOLLOW(B)$ 中
 3. 若有$A → αB$，或 $A → αBβ$，其中 $FIRST(β)$ 包含 $\epsilon$ 则 $FOLLOW(A)$ 中的所有元素也在 $FOLLOW(B)$ 中。
 
@@ -168,6 +167,6 @@ Follow集就是在文法的所有句子中，可能出现在“由非终结符A�
 
 同时我们也终于明白了$FIRST$集和$FOLLOW$集的求法，这两个集合在之后的移进-规约分析中也有用。
 
-[^0]: 注意这里“数次”含0次，所以起始符号自然符合要求
+[^1]: 注意这里“数次”含0次，所以起始符号自然符合要求
 
-[^1]:这里可能要自己感觉一下，如果有人有更好的讲法，请在评论区留言
+[^2]: 这里可能要自己感觉一下，如果有人有更好的讲法，请在评论区留言

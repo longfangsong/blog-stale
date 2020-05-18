@@ -19,7 +19,10 @@ summary: 本文介绍了一种白痴都能懂的Parser构造方法：含回朔�
 
 我们要分析的文法是：
 $$
-Expression \rightarrow Ident | Constant | InBrackets \mid Expression * Expression | Expression + Expression \\InBrackets \rightarrow '(' Expression')' \\Ident \rightarrow [a-zA-Z][a-zA-Z0-9]* \\Constant \rightarrow [0-9]*
+Expression \rightarrow Ident | Constant | InBrackets \mid Expression * Expression | Expression + Expression \\\\
+InBrackets \rightarrow '(' Expression')' \\\\
+Ident \rightarrow [a-zA-Z][a-zA-Z0-9]* \\\\
+Constant \rightarrow [0-9]*
 $$
 
 
@@ -162,10 +165,10 @@ fn mul(code: string) -> (Expression, string) | Error {
 
 实际上就相当于将Expression部分的文法改成了：
 $$
-Expression \rightarrow Add | Mul | Ident | Constant | InBrackets \\
-Add \rightarrow HigherThanAdd + Expression \\
-Mul \rightarrow HigherThanMul * Expression \\
-HigherThanMul \rightarrow Ident | Constant|InBrackets \\
+Expression \rightarrow Add | Mul | Ident | Constant | InBrackets \\\\
+Add \rightarrow HigherThanAdd + Expression \\\\
+Mul \rightarrow HigherThanMul * Expression \\\\
+HigherThanMul \rightarrow Ident | Constant|InBrackets \\\\
 HigherThanAdd \rightarrow Mul | HighterThanMul
 $$
 和书上讲的消除左递归的方案是不是很像？
@@ -187,7 +190,7 @@ $$
 
 - 效率问题，回朔可能会带来一定的性能问题，因此可能不适用于一些极其要求性能的场合[^3]
 
-注意我没有提到任何关于“可以分析的文法类的大小”的问题，我没有查到带回朔的递归下降分析器能分析的文法类，但如果我没有想错的话它能分析$LL(\infin)$，总之在实践中，这一分析器可以应用于几乎所有可能会碰到的文法，当然，除了C++之外，C++不是$CFG$……。
+注意我没有提到任何关于“可以分析的文法类的大小”的问题，我没有查到带回朔的递归下降分析器能分析的文法类，但如果我没有想错的话它能分析$LL(\infty)$，总之在实践中，这一分析器可以应用于几乎所有可能会碰到的文法，当然，除了C++之外，C++不是$CFG$……。
 
 
 [^1]: 本文中的代码均为伪代码，返回类型也不太严谨（如果你一定要深究的话，那么可以把它们看作是协变的），实际实现可以参考[Geal/nom](https://github.com/Geal/nom)及[我对其的简化实现](https://github.com/longfangsong/tiny-nom)。

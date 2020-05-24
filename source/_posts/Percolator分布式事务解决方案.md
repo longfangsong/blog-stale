@@ -59,7 +59,7 @@ WHERE T.value=true;
 
 | id   | value            |
 | ---- | ---------------- |
-| 1    | true             |
+| 1    | false (modified) |
 | 2    | false (modified) |
 | 3    | false            |
 | 4    | false            |
@@ -73,7 +73,7 @@ WHERE T.value=true;
 | 3    | true (modified) |
 | 4    | true (modified) |
 
-而合并时，我们只会合并修改过的部分，故得到
+而合并（commit）时，我们只会合并修改过的部分，故得到
 
 | id   | value |
 | ---- | ----- |

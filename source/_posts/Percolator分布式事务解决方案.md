@@ -1,6 +1,6 @@
 ---
 title: Percolator分布式事务解决方案
-mathjax: true
+mathjax: false
 comments: true
 date: 2020-05-23 22:27:15
 tags: [分布式系统]
@@ -90,16 +90,16 @@ WHERE T.value=true;
 
 ### 事务开始
 
-记录开始时间戳$start\_timestamp$即可。
+记录事务开始时间戳`start_timestamp​`即可。
 
 ### 事务中的读
 
 读某个Cell时：
 
 1. 本事务中的修改可以直接读到
-2. 首先检查在时间范围$[0, start\_timestamp]$内对这个Cell的写锁，发现了就尝试执行清理操作，见下文的故障恢复一节
+2. 首先检查在时间范围`[0, start_timestamp]​`内对这个Cell的写锁，发现了就尝试执行清理操作，见下文的故障恢复一节
 
-2. 读取在$[0, start\_timestamp]$中最后一个写记录[^2]对应的数据
+2. 读取在`[0, start_timestamp]​`中最后一个写记录[^2]对应的数据
 
 ### 事务中的写
 
@@ -119,9 +119,10 @@ Commit过程基本上是一个[两阶段提交](https://longfangsong.github.io/2
          - 发现了任意时间对这个Cell的锁
       2. 写入这次Commit希望写入的值
       3. 锁定这个Cell，同时记录对应的“Primary”锁（Primary锁是从这一堆Cell上的锁中按照一定规则选取的，一般就选第一个），“Primary”锁产生原因见故障恢复一节。
-   2. 根据“Primary”锁确定事务是否确实要commit
+   2. 获取Commit的时间戳
+   3. 根据“Primary”锁确定事务是否确实要commit
       - 在事务Commit前，它必须检查自己是否依然拥有“Primary”锁
-        - 如果有这个锁，将其替换为一个写记录（体现为一个`write`列）。
+        - 如果有这个锁，将其替换为时间戳为当前Commit时间戳的写记录（体现为一个`write`列）。
         - 如果没有这个锁了，那么此次事务失败。
 
 2. 第二阶段
@@ -133,6 +134,8 @@ Commit过程基本上是一个[两阶段提交](https://longfangsong.github.io/2
 #### 清理因Client挂掉而未释放的锁
 
 在事务发现被其他事务由于崩溃而遗留在某个Cell上的锁时，如果对应的“Primary”锁已经被替换为写记录，则roll forward，否则roll back。
+
+那么如何确定某个事务确实崩溃了呢？这里用的方法是：每个事务对应一个token，由一个Chubby锁服务使用[Lease机制](https://longfangsong.github.io/2020/04/25/分布式系统（4）——Lease机制/)来确定事务是否存活。
 
 [^1]: 注意是真正“当前”的版本，而不是事务工作所在的版本
 

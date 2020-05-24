@@ -11,7 +11,7 @@ summary: 针对Bigtable没有跨行事务的缺点，Google提出了Percolator�
 
 在Bigtable中，事务是不能跨行的，这为一些操作带来了不便，于是Google在Bigtable上搭建了一个称为Percolator的分布式事务解决方案，实现了 Snapshot Isolation 级别的跨行事务。
 
-##快照隔离（Snapshot Isolation）
+## 快照隔离（Snapshot Isolation）
 
 快照隔离通过Bigtable中Cell的timestamp，实现了：
 

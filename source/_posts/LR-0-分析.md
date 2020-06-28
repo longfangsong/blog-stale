@@ -12,10 +12,20 @@ summary: 这个 LR(0) 分析涉及的东西爆炸多，理解起来也不太容�
 举一个经典的表达式文法的例子：
 
 $$
-E \rightarrow E+T|T \\\\
-T \rightarrow T*F|F \\\\
+E \rightarrow E+T|T
+$$
+
+$$
+T \rightarrow T*F|F
+$$
+
+$$
 F \rightarrow (E) | \textbf{id}
 $$
+
+
+
+
 
 我们来模拟一下匹配字符串 $\textbf{id}\*\textbf{id}+(\textbf{id}+\textbf{id})\*\textbf{id}$ 的过程，并尝试解释每一步选择移进还是归约的原因。
 
@@ -84,9 +94,14 @@ $$
 
 我们考虑上面说到的 $T \rightarrow T\*\cdot F$，以及另外两个项：
 $$
-F \rightarrow \cdot(E) \\\\
+F \rightarrow \cdot(E)
+$$
+$$
 F \rightarrow \cdot \textbf{id}
 $$
+
+
+
 我们可以看到在 $T \rightarrow T\*\cdot F$ 项的对应状态下，上面两个项所代表的状态其实就是 $T \rightarrow T\*\cdot F$ 在试图匹配 $F$ 时的“子状态”或“等价状态”。
 
 那么我们就把这两个状态和原先的 $T \rightarrow T\*\cdot F$ 放在一个集合里面，称之为“ $T \rightarrow T\*\cdot F$ 的项集闭包”，其中 $T \rightarrow T\*\cdot F$ 称为闭包的核心。
@@ -97,7 +112,7 @@ $$
 
 把所有的项、对应的项集闭包以及状态之间的转换关系列出来，我们就可以建立起一个 LR(0) 状态机：
 
-![100](LR-0-分析/100.png)
+![i100](LR-0-分析/i100.png)
 
 可以看到每一个产生式对应的所有项都会出现在这个状态机里面，而每条边上则指示了在栈顶又被压入某个符号时的状态转换。
 
@@ -155,16 +170,26 @@ $$
 
 - 一个项认为已经可以归约了，另一个项认为还需要移进
   $$
-  A \rightarrow a\cdot b \\\\
-  B \rightarrow c \cdot
+  A \rightarrow a\cdot b
   $$
-这称为移进-归约冲突。
+  $$
+B \rightarrow c \cdot
+  $$
+  
+  
+  
+  这称为移进-归约冲突。
   
 - 两个项认为可以归约出不同的东西
   $$
-  A \rightarrow b \cdot \\\\
+  A \rightarrow b \cdot
+  $$
+  $$
   C \rightarrow d \cdot
   $$
+  
+  
+  
   这称为归约-归约冲突。
 
 有此类冲突的不是LR(0)文法，需要用其他分析方法分析。

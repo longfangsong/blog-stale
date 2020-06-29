@@ -39,3 +39,19 @@ summary: SLR(1)分析通过对FOLLOW集的分析，可以处理一些LR(0)中的
   $$
   的归约-归约冲突，如果下一个输入符号是$e$，那么根据是否存在包含或可以推导出 $Ae$ 或者 $Ce$ 的产生式（用形式化的语言来说，就是 $e$ 是否在 $A$ 或 $C$ 的 [FOLLOW 集](https://longfangsong.github.io/2020/05/17/First%E9%9B%86%E5%92%8CFollow%E9%9B%86%E7%A9%B6%E7%AB%9F%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E4%BB%A5%E5%8F%8ALL(1)%E6%96%87%E6%B3%95%E7%9A%84%E5%88%86%E6%9E%90/#Follow%E9%9B%86)中），来选择归约到 $A$ 还是 $C$。
 
+推广到更一般的情形，对于一堆同一个项集中的项：
+$$
+A_1\rightarrow 一坨东西\cdot a_1 \cdot 一坨东西 \\\\
+A_2\rightarrow 一坨东西\cdot a_2 \cdot 一坨东西 \\\\
+\cdots\\\\
+A_n\rightarrow 一坨东西\cdot a_n \cdot 一坨东西 \\\\
+
+B_1\rightarrow 一坨东西\cdot \\\\
+B_2\rightarrow 一坨东西\cdot \\\\
+\cdots \\\
+B_k\rightarrow 一坨东西\cdot \\\\
+$$
+（注意SLR(1)中下面两项不能分出先后）
+
+- 若下一个输入符号在 $\{a_1,a_2,\cdots,a_n\}$ 中，则移进。
+- 若下一个输入符号在 $FOLLOW(B_i)$ 中，则归约到 $B_i$。

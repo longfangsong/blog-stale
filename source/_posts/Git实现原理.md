@@ -57,6 +57,8 @@ git update-index --add ./1.txt
 git update-index --add ./dir1/2.txt
 ```
 
+注意 `update-index` 同时也做了 `hash-object -w` 的操作。
+
 再
 
 ```shell
@@ -121,6 +123,50 @@ echo "e232d34bab2ffbb4aa852a1e433c1a61830c5e3f" > .git/refs/heads/master
 
 ![ref-master](Git实现原理/ref-master.png)
 
+## merge 算法
+
+解决上面这个问题之后，这个 `merge` 变成了难点：除了可以fast forward的情况之外，我们merge的过程中一定是会出现冲突的，即要merge的两个版本中的文件不一样的问题。
+
+有些解决策略很简单粗暴，比如：
+
+- `ours`
+
+  无脑采纳己方修改
+
+- `theirs`
+
+  无脑采纳对方修改
+
+但有的时候是真的需要比较两个版本，看采纳哪一部分。
+
+仅仅比较两个版本是无法看出冲突中要保留哪一个的，这很容易理解：两个版本如果有差异，我们不可能知道要采用哪边的版本。
+
+但是如果找出两个版本公共的祖先版本，然后两个版本都和它比较，如果祖先版本和某个版本在这个地方是一样的，那么我们可以认为这个版本没有改这个部分，而另一个版本改了，那么就应该采用另一个版本，这个算法就叫三路归并，resolve策略执行的就是这种merge。
+
+这个算法说起来很简单，但执行过程中会遇到找到不止一个公共祖先的问题，这种时候采用递归合并策略，就是如果发现多个公共祖先，那就先合并这多个公共祖先，直到只有一个公共祖先为止，然后递归向上合并，这也是默认的行为。
+
+还有一个叫`octopus`的策略用于合并多个分支，`subtree` 策略在合并树A和树B时，如果B是A的子树，B首先调整至匹配A的树结构，这两个用的比较少，就不细说了。
+
+## 其他
+
+还有一些要知道的信息：
+
+`.git/config`会存：
+
+- 有哪些远程分支
+
+- 跟踪远程分支
+
+- submodule相关
+
+  
+
+仓库上传时
+
+可以使用简单的HTTP传输，用你能想到的那种最简单的方式
+
+也可以定制协议，`send-pack`、`receive-pack`等。
+
 ## 总结
 
 本文讲述了 git 的几个更为“基本”的命令，从而剖析了 Git 的内部工作原理。
@@ -133,7 +179,7 @@ echo "e232d34bab2ffbb4aa852a1e433c1a61830c5e3f" > .git/refs/heads/master
   - 前面没有提过，但远程分支对应信息在 `.git/refs/remotes/远程名/分支名` 里
   -  前面没有提过，但tag对应信息在 `.git/refs/tags/tag名` 里
 
-上述所有内容均会在Git任务合适的时候被pack成更节约空间的形式。
+上述所有内容均会在Git认为合适的时候被pack成更节约空间的形式。
 
 那么我们就可以自己推出一些我们更常用的命令的实现：
 
@@ -150,6 +196,7 @@ echo "e232d34bab2ffbb4aa852a1e433c1a61830c5e3f" > .git/refs/heads/master
   1. 查 `refs` 得其对应 `commit`
   2. 查 `commit` 得其对应 `tree`
   3. 递归从 `tree` 中解出文件，并覆盖工作区的对应文件
+  4. 更新 `HEAD`，记录当前所在分支
 
 - `fetch`
 
@@ -168,20 +215,20 @@ echo "e232d34bab2ffbb4aa852a1e433c1a61830c5e3f" > .git/refs/heads/master
 
 - `merge` (no-ff)
 
-  1. three-way merging，如有必要手动解决冲突，结果放在工作区
+  1. 进行某种three-way merging，如有必要手动解决冲突，结果放在工作区
   2. `update-index`
   3. `write-tree` + 更新 `refs`，生成的 commit 有两个爹，其他也没啥特别的
 
 - `cherry-pick`
 
-  1. three-way merging，如有必要手动解决冲突，结果放在工作区
+  1. 进行某种three-way merging，如有必要手动解决冲突，结果放在工作区
   2. `update-index`
   3. `write-tree` + 更新 `refs`，生成的 commit 其 parent 是cherry-pick到的分支的head，tree是刚刚write的tree，其他都和cherry-pick来的那个 commit 一样
 
 - `rebase`
 
-  1. three-way merging，如有必要手动解决冲突，结果放在工作区
-  2. 更新 commit，重新认爹。
+  1. 进行某种three-way merging，如有必要手动解决冲突，结果放在工作区
+  2. 更新 commit，内容不变，但是会更新commit id，并重新认爹。
 
 
 

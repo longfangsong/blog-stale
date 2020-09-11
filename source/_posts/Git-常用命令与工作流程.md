@@ -121,7 +121,7 @@ git remote set-url --push upstream no_push # 不往 upstream 上 push, 因为你
 
 然后更新的时候指定从 upstream master 上 pull
 
-![pull upstream](Git-常用命令与工作流程/pull upstream.png)
+![pull upstream](Git-常用命令与工作流程/pull-upstream.png)
 
 注意这里生成了一个新的提交，因为 `git pull` 实质上做的是一次 `git fetch` 加上一次 `git merge`，如果不希望生成这个提交可以使用 `git pull --rebase` ，这里的 `merge` 和 `rebase` 是啥我一会讲分支的时候讲。
 

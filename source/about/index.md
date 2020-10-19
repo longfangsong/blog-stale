@@ -6,9 +6,9 @@ comments: false
 
 这是龙方淞的个人博客。
 
-除特别注明和引用自其他网站的内容外，这一博客上的文章均没有版权和协议。
+除特别注明和引用自其他网站的内容外，这一博客上的文章均为 [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/deed.zh)[![CC icon](index/cc.7a093a7d.svg)![zero icon](index/zero.2670342e.svg)](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1) 协议。
 
-您可以自由地使用这一博客上的文章，请随意搬运。
+即您可以自由地使用这一博客上的文章，请随意搬运。
 
 你甚至可以搬运整篇文章并声称是自己写的，作者并不在乎。
 

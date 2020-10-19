@@ -6,7 +6,11 @@ comments: false
 
 这是龙方淞的个人博客。
 
-除特别注明和引用自其他网站的内容外，这一博客上的文章均为 [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/deed.zh)[![CC icon](index/cc.7a093a7d.svg)![zero icon](index/zero.2670342e.svg)](https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1) 协议。
+
+
+除特别注明和引用自其他网站的内容外，这一博客上的文章均为 [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/deed.zh) 协议。
+
+<a rel="license" href="http://creativecommons.org/publicdomain/zero/1.0/"><img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0" /></a>
 
 即您可以自由地使用这一博客上的文章，请随意搬运。
 
@@ -21,3 +25,4 @@ comments: false
 | 支付宝                              | 微信                                |
 | ----------------------------------- | ----------------------------------- |
 | <img src="/about/index/alipay.png"> | <img src="/about/index/wechat.png"> |
+
